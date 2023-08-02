@@ -1,0 +1,74 @@
+<MyMentor>
+    BoxLayout:
+        orientation:"vertical"
+        size: root.width,root.height
+        BoxLayout:
+            orientation:"horizontal"
+            Image:
+                source: 'images/projlogo.png'
+                allow_stretch:True
+                keep_ratio: True
+
+           # Label:
+            #    text: "Self-Paced Mentor"
+             #   font_size:40
+              #  color: (0,0,0,1)
+        BoxLayout:
+            orientation: 'horizontal'
+            padding: 10
+            spacing: 20
+            size_hint:(1,0.4)
+            align:{"center_x":0.5}
+            Label:
+                height: 30
+                text: "You are eager to know about: "
+                id: argument
+                font_size:20
+                color: (0,0,0,1)
+            TextInput:
+                size_hint:(1,1.5)
+                multiline: True
+                id: written_doubt
+
+        Label:
+            size_hint:(1.5,0.6)
+            text:"You asked about..."
+            id: doubt
+            font_size:15
+            color: (0,0,0,1)
+            height: self.texture_size[1]
+            text_size:self.width,None
+
+        ScrollView:
+            size_hint:(1,2)
+            Label:
+                size_hint_y: None
+                height: self.texture_size[1]
+                text_size:self.width,None
+                text:"My best possible answer"
+                #halign
+                id: reply
+                font_size:15
+                color: (0,0,0,1)
+
+        BoxLayout:
+            orientation: 'horizontal'
+            padding: 10
+            spacing: 20
+            size_hint:(1,1)
+            align:{"center_x":0.5}
+            Button:
+                size_hint:(0.4,0.5)
+                text: "Help me"
+                align:{"center_x":0.3}
+                on_press: root.help()
+            Button:
+                size_hint:(0.4,0.5)
+                text: "Mock Interview"
+                align:{"center_x":0.6}
+                on_press: root.test()
+            Button:
+                size_hint:(0.4,0.5)
+                text: "Quick Revision"
+                align:{"center_x":0.9}
+                on_press: root.revise()
